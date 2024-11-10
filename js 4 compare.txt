@@ -1,0 +1,32 @@
+Lab4: Compare String 
+<!DOCTYPE html> 
+<html> 
+  <body style="text-align:center;" id="demo"> 
+    <h1 style="color:green;">String Comparison</h1> 
+    <p>First String: <input type="text" id="t" name="tn"></p> 
+    <p>Second String: <input type="text" id="t1" name="tn1"></p> 
+    <button onclick="sample()">Compare the two strings</button> 
+    <p 
+      id="sample" 
+      style="color:red; font-size: 23px; font-weight: bold;" 
+    ></p> 
+ 
+    <script> 
+     var s = document.getElementById("t"); 
+       var s1 = document.getElementById("t1"); 
+       var result = document.getElementById("sample"); 
+       function sample() { 
+         var x = s.value; 
+         var y = s1.value; 
+         var out = x.localeCompare(y); 
+         var r = ""; 
+         if (out == -1) { 
+            r = '"' + x + '" string value comes before "' + y + '"'; 
+         } else if (out == 0) { 
+            r = "Both the string values are equal"; 
+         } else { 
+            r = '"' + x + '" string value comes after "' + y + '"'; 
+         } 
+         result.innerHTML = r; 
+       } </script>  </body>  </html> 
+ 

@@ -1,0 +1,70 @@
+Lab7: Set operation 
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Set Operation</title> 
+</head> 
+<body> 
+    <h1>Set Operations</h1> 
+    <div id="results"></div> 
+ 
+    <script>  
+        // Union  
+        function union(setA, setB) { 
+            let unionSet = new Set(setA); 
+            for (let elem of setB) { 
+                unionSet.add(elem); 
+            } 
+            return unionSet; 
+        } 
+ 
+        // Intersection 
+        function intersection(setA, setB) { 
+            let intersectionSet = new Set(); 
+            for (let elem of setB) { 
+                if (setA.has(elem)) { 
+                    intersectionSet.add(elem); 
+                } 
+            } 
+            return intersectionSet; 
+        } 
+ 
+        // Difference 
+        function difference(setA, setB) { 
+            let differenceSet = new Set(setA); 
+            for (let elem of setB) { 
+                differenceSet.delete(elem); 
+            } 
+            return differenceSet; 
+        } 
+ 
+        // Set Difference (Symmetric Difference) 
+        function symmetricDifference(setA, setB) { 
+            let differenceSet = new Set(setA); 
+            for (let elem of setB) { 
+                if (differenceSet.has(elem)) { 
+                    differenceSet.delete(elem); 
+                } else { 
+                    differenceSet.add(elem); 
+                } 
+            } 
+            return differenceSet; 
+        } 
+ 
+        const setA = new Set(['apple', 'banana', 'cherry']); 
+        const setB = new Set(['banana', 'date', 'fig']); 
+ 
+        // Display results 
+        const resultsDiv = document.getElementById('results'); 
+        resultsDiv.innerHTML += `<p>Original Set A: ${Array.from(setA).join(', ')}</p>`; 
+        resultsDiv.innerHTML += `<p>Original Set B: ${Array.from(setB).join(', ')}</p>`; 
+        resultsDiv.innerHTML += `<p>Union: ${Array.from(union(setA, setB)).join(', ')}</p>`; 
+        resultsDiv.innerHTML += `<p>Intersection: ${Array.from(intersection(setA, setB)).join(', ')}</p>`; 
+        resultsDiv.innerHTML += `<p>Difference (A - B): ${Array.from(difference(setA, setB)).join(', 
+')}</p>`; 
+        resultsDiv.innerHTML += `<p>Symmetric Difference: ${Array.from(symmetricDifference(setA, 
+setB)).join(', ')}</p>`; 
+    </script> 
+</body> 
+</html> 
+ 

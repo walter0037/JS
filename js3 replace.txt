@@ -1,0 +1,15 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>String Replacement</title> 
+    <script> 
+        var string = 'Progressive Education Society '; 
+        var newstring = string.replace(/Progressive Education Society/, 'PES'); 
+ 
+        document.writeln("Original String: " + string); 
+        document.writeln("<br>"); 
+        document.writeln("Replaced String: " + newstring); 
+    </script>  
+</head> <body>  </body>  </html>

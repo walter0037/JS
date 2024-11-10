@@ -1,0 +1,134 @@
+Lab3: palindrome 
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>JavaScript Palindrome</title> 
+    <style> 
+        body { 
+            font-family: Arial, sans-serif; 
+            font-size: 18px; 
+        } 
+        h1 { 
+            font-size: 28px; 
+        } 
+        input { 
+            font-size: 18px; 
+            padding: 5px; 
+            margin-top: 10px; 
+        } 
+        button { 
+            font-size: 18px; 
+            padding: 5px 10px; 
+            margin-left: 10px; 
+            cursor: pointer; 
+        } 
+        p { 
+            font-size: 20px; 
+            margin-top: 15px; 
+            font-weight: bold; 
+        } 
+    </style> 
+</head> 
+<body> 
+    <h1>Palindrome Checker</h1> 
+    <input type="text" id="inputString" placeholder="Enter a string or number"> 
+    <button onclick="checkPalindrome()">Check</button> 
+    <p id="output"></p> 
+    <script> 
+        function validatePalin(str) { 
+            // Get the total length of the string 
+            const len = str.length; 
+            // Loop to divide the string into two halves and check if characters are the same 
+            for (let i = 0; i < len / 2; i++) { 
+                if (str[i] !== str[len - 1 - i]) { 
+                    return false; 
+                } 
+            } 
+            return true; 
+        } 
+ 
+        function checkPalindrome() { 
+            // Get the input value 
+            const str = document.getElementById("inputString").value; 
+            const output = document.getElementById("output"); 
+            // Validate if the input string or number is a palindrome 
+            if (validatePalin(str)) { 
+                output.textContent = "It is a palindrome"; 
+                output.style.color = "green"; 
+            } else { 
+                output.textContent = "It is not a palindrome"; 
+                output.style.color = "red"; 
+            } 
+        } 
+    </script> 
+</body></html> 
+  
+ 
+Lab3: Replace String 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>String Replacement</title> 
+    <script> 
+        var string = 'Progressive Education Society '; 
+        var newstring = string.replace(/Progressive Education Society/, 'PES'); 
+ 
+        document.writeln("Original String: " + string); 
+        document.writeln("<br>"); 
+        document.writeln("Replaced String: " + newstring); 
+    </script>  
+</head> <body>  </body>  </html> 
+ 
+ 
+Lab3: Reverse String 
+ 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Reverse String</title> 
+    <script> 
+        // Function to reverse the string 
+        function ReverseString(str) { 
+            // Check input validity 
+            if (!str || str.length < 2 || typeof str !== 'string') { 
+                return 'Not valid'; 
+            } 
+ 
+            // Take an empty array to store reversed characters 
+            const revArray = []; 
+            const length = str.length - 1; 
+ 
+            // Loop from the end of the string and push characters into the array 
+            for (let i = length; i >= 0; i--) { 
+                revArray.push(str[i]); 
+            } 
+ 
+            // Join the array elements to form the reversed string 
+            return revArray.join(''); 
+        } 
+ 
+        // Function to display the reversed string 
+        function displayReversedString() { 
+            // Get the string from the input field 
+            const str = document.getElementById("inputString").value; 
+            // Get the output element 
+            const output = document.getElementById("output"); 
+            // Display the reversed string in the output element 
+            output.textContent = "Reversed string: " + ReverseString(str); 
+        } 
+    </script> 
+</head> 
+<body> 
+    <h1>Reverse a String</h1> 
+    <input type="text" id="inputString" placeholder="Enter the string"> 
+    <button onclick="displayReversedString()">Reverse</button> 
+    <p id="output"></p> 
+</body> 
+</html> 
+  
+ 
+ 

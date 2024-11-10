@@ -1,0 +1,63 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>JavaScript Palindrome</title> 
+    <style> 
+        body { 
+            font-family: Arial, sans-serif; 
+            font-size: 18px; 
+        } 
+        h1 { 
+            font-size: 28px; 
+        } 
+        input { 
+            font-size: 18px; 
+            padding: 5px; 
+            margin-top: 10px; 
+        } 
+        button { 
+            font-size: 18px; 
+            padding: 5px 10px; 
+            margin-left: 10px; 
+            cursor: pointer; 
+        } 
+        p { 
+            font-size: 20px; 
+            margin-top: 15px; 
+            font-weight: bold; 
+        } 
+    </style> 
+</head> 
+<body> 
+    <h1>Palindrome Checker</h1> 
+    <input type="text" id="inputString" placeholder="Enter a string or number"> 
+    <button onclick="checkPalindrome()">Check</button> 
+    <p id="output"></p> 
+    <script> 
+        function validatePalin(str) { 
+            // Get the total length of the string 
+            const len = str.length; 
+            // Loop to divide the string into two halves and check if characters are the same 
+            for (let i = 0; i < len / 2; i++) { 
+                if (str[i] !== str[len - 1 - i]) { 
+                    return false; 
+                } 
+            } 
+            return true; 
+        } 
+ 
+        function checkPalindrome() { 
+            // Get the input value 
+            const str = document.getElementById("inputString").value; 
+            const output = document.getElementById("output"); 
+            // Validate if the input string or number is a palindrome 
+            if (validatePalin(str)) { 
+                output.textContent = "It is a palindrome"; 
+                output.style.color = "green"; 
+            } else { 
+                output.textContent = "It is not a palindrome"; 
+                output.style.color = "red"; 
+            } 
+        } 
+    </script> 
+</body></html>

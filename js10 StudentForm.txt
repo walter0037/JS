@@ -1,0 +1,80 @@
+Lab10: StudentForm 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Student Information Form</title> 
+<style> 
+body { font-family: Arial, sans-serif; } 
+.error { color: red; } 
+</style> 
+</head> 
+<body> 
+<h2>Student Information Form</h2> 
+<form id="studentForm"> 
+<label for="name">Name:</label> 
+<input type="text" id="name" required><br><br> 
+<label for="address">Address:</label> 
+<input type="text" id="address" required><br><br> 
+<label for="city">City:</label> 
+<input type="text" id="city" required><br><br> 
+<label for="state">State:</label> 
+<input type="text" id="state" required><br><br> 
+<label for="gender">Gender:</label> 
+<select id="gender" required> 
+<option value="">Select</option> 
+<option value="male">Male</option> 
+<option value="female">Female</option> 
+<option value="other">Other</option> 
+</select><br><br> 
+<label for="mobile">Mobile Number:</label> 
+<input type="text" id="mobile" required><br><br> 
+<label for="email">Email ID:</label> 
+<input type="email" id="email" required><br><br> 
+<button type="submit">Submit</button> 
+</form> 
+<div id="message" class="error"></div> 
+<script src="script1.js"></script> 
+</body> 
+</html> 
+
+
+
+Script.js 
+ 
+document.getElementById("studentForm").addEventListener("submit", function(event) { 
+event.preventDefault(); // Prevent the form from submitting 
+// Clear previous messages 
+const messageDiv = document.getElementById("message"); 
+messageDiv.innerHTML = ""; 
+// Get form values 
+const name = document.getElementById("name").value.trim(); 
+const address = document.getElementById("address").value.trim(); 
+const city = document.getElementById("city").value.trim(); 
+const state = document.getElementById("state").value.trim(); 
+const gender = document.getElementById("gender").value; 
+const mobile = document.getElementById("mobile").value.trim(); 
+const email = document.getElementById("email").value.trim(); 
+// Validation 
+if (!name || !/^[a-zA-Z\s]+$/.test(name)) { 
+messageDiv.innerHTML += "Please enter a valid name.<br>"; } 
+if (!address) { 
+messageDiv.innerHTML += "Address cannot be empty.<br>"; } 
+if (!city) { 
+messageDiv.innerHTML += “City cannot be empty.<br>”; } 
+if (!state) { 
+messageDiv.innerHTML += “State cannot be empty.<br>”; } 
+if (gender === “”) { 
+messageDiv.innerHTML += “Please select a gender.<br>”; } 
+if (!mobile || !/^\d{10}$/.test(mobile)) { 
+messageDiv.innerHTML += “Please enter a valid mobile number (10 digits).<br>”; } 
+if (!email || !/^\S+@\S+\.\S+$/.test(email)) { 
+messageDiv.innerHTML += “Please enter a valid email ID.<br>”; } 
+// If there are no errors, show the success message 
+if (messageDiv.innerHTML === “”) { 
+alert(“Congratulations! Welcome, “ + name + “!”); 
+// Optionally redirect to another page 
+// window.location.href = “welcome.html”; }  }  ) 
+ 
+ 
